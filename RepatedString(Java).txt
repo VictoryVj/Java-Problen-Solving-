@@ -1,0 +1,37 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+public class RepeatedString 
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+        long N,Count1,TotalCount,Divisor,Remainder;
+        String s = sc.next();
+        N = sc.nextLong();
+        Count1 = 0;
+        TotalCount = 0;
+        for(int i = 0; i< s.length();i++)
+        {
+            if(s.charAt(i) == 'a')
+            {
+                Count1++;
+            }
+        }
+        Divisor = N/s.length();
+        TotalCount += Divisor * Count1;
+        Remainder = N % s.length();
+        
+        for(int i = 0;i<Remainder;i++)
+        {
+            if(s.charAt(i) == 'a')
+            {
+                TotalCount++;
+            }
+        }
+        
+        System.out.println(TotalCount);
+    }
+}
