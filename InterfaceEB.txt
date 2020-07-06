@@ -1,0 +1,72 @@
+import java.util.*;
+interface in1
+{
+	void get();
+}
+interface in2 extends in1
+{
+	Scanner sc=new Scanner(System.in);
+	void unitdet();
+}
+interface in3
+{
+	void disp();
+}
+class inter implements in2,in3
+{
+	int EbNumber,UnitsConsumed,ch;
+	double Cost,Deduction;
+	String name;
+	public void get()
+	{
+		System.out.println("Enter the EbNumber:");
+		EbNumber=sc.nextInt();
+		System.out.println("Enter the name:");
+		name=sc.next();
+	}
+	public void unitdet()
+	{
+		System.out.println("Enter the UnitConsumed:");
+		UnitsConsumed=sc.nextInt();
+		if(UnitsConsumed<=100)
+		{
+			System.out.println("You have used below 100 units so you dont have any charges.. congrats..!!"+Deduction);
+		}
+		else if(UnitsConsumed > 100 && UnitsConsumed <= 200)
+		{
+			Cost = UnitsConsumed * 1.5;
+			Deduction = Cost - 100;
+			System.out.println("Electric bill:"+Deduction);
+		}
+		else if(UnitsConsumed > 200 && UnitsConsumed <= 400)
+		{
+			Cost = UnitsConsumed * 2;
+			Deduction = Cost -100;
+			System.out.println("Electric bill:"+Deduction);
+		}
+		else
+		{
+			Cost = UnitsConsumed * 2.5;
+			Deduction = Cost;
+			System.out.println("Electric bill:"+Deduction);
+		}
+	}
+	public void disp()
+	{
+		System.out.println("\t"+EbNumber+"\t"+name+"\t"+UnitsConsumed+"\t"+Deduction);
+	}
+}
+
+public class Interface1
+{
+	public static void main(String args[])
+	{
+		inter ob=new inter();
+		ob.get();
+		ob.unitdet();
+		System.out.println("----------------------------------------------------");
+		System.out.println("\tEbNumber Name\tUnits\tElectric Bill");
+		System.out.println("----------------------------------------------------");
+		ob.disp();
+	}
+}
