@@ -1,0 +1,36 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution 
+{
+    public static void main(String str[])
+    {
+        long size,operationCount,max =0;
+        Scanner sc = new Scanner(System.in);
+        size = sc.nextLong();
+        operationCount = sc.nextLong();
+        long arr[] = new long[10000000];
+        Arrays.fill(arr,0);
+        for(long loop =0; loop<operationCount; loop++)
+        {
+            long start = sc.nextLong();
+            long end = sc.nextLong();
+            long addValue = sc.nextLong();
+            for(long loop2 =start-1; loop2<end; loop2++)
+            {
+                arr[loop2] += addValue;
+                if(max < arr[loop2])
+                {
+                    max = arr[loop2];
+                }
+            }
+
+        }
+        System.out.println(max);
+    }
+}
