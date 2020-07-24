@@ -1,0 +1,38 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution 
+{
+
+    public static void main(String str[])
+    {
+        Scanner inr = new Scanner (System.in);
+        int size = inr.nextInt();
+        int difference = inr.nextInt();
+        int num[] = new int[size];
+        for(int i=0;i<size;i++){
+            num[i] = inr.nextInt();
+        }
+        Arrays.sort(num);
+        int count = 0;
+        for(int i=0;i<size;i++){
+            for(int j=i+1;j<size;j++){
+                if(num[j] - num[i] == difference || num[i] - num[j] == difference){
+                    count++;
+                }
+                else if(num[j] - num[i] > difference || num[i] - num[j] > difference){
+                    break;
+                }
+            }
+        }
+        
+        System.out.println(count);
+
+    }
+    
+}
