@@ -1,0 +1,40 @@
+import java.io.*;
+import java.util.*;
+
+class InvalidInputException extends Exception
+{
+	InvalidInputException(String exceptionText)
+	{
+		super(exceptionText);
+	}
+}
+
+public class UserDefinedExcception 
+{
+	
+	static void validateInput(int num) throws InvalidInputException
+	{
+		if(num > 100)
+		{
+			throw new InvalidInputException("Exception");
+		}
+		System.out.println("Valid Input");
+	}
+	 public static void main(String str[])
+	 {
+		 Scanner sc = new Scanner(System.in);
+		  
+		 int num =sc.nextInt();
+		 try
+		 {
+			 validateInput(num);
+		 }
+		 catch(InvalidInputException e)
+		 {
+			 System.out.println("Exception Caught - Invalid Exception");
+		 }
+	 }
+	 
+}
+
+
