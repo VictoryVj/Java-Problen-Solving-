@@ -1,0 +1,29 @@
+import java.util.*;
+class Solution
+{
+    public static void main(String str[])
+    {
+        
+        
+        int size,dif,i=0,min = Integer.MAX_VALUE;
+        Scanner sc = new Scanner(System.in);
+        size = sc.nextInt();
+        long arr[] = new long[size];
+        for(int loop =0 ;loop <size; loop++)
+        {
+            arr[loop] = sc.nextLong();
+        }
+        for(int loop=0; loop<size-1; loop++)
+        {
+            for(int loop2=loop+1; loop2<size; loop2++)
+            {
+                if(arr[loop] == arr[loop2])
+                {
+                    min = Math.min(min, Math.abs(loop2-1));
+                }
+            }
+        }
+        int result = (min == Integer.MAX_VALUE ? -1: min);
+        System.out.println(result);
+    }
+}
